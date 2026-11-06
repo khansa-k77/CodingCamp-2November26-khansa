@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To-Do List Life Dashboard</title>
+    <link rel="stylesheet" href="styles/style.css">
+</head>
+<body>
+    <header class="dashboard-header">
+        <section class="greeting-area">
+            <h1 id="greeting">Good morning, User!</h1>
+            <p id="time-display"></p>
+            <p id="date-display"></p>
+        </section>
+        
+        <section class="timer-area">
+            <div class="timer-controls">
+                <select id="duration-selector">
+                    <option value="5">5 min</option>
+                    <option value="10">10 min</option>
+                    <option value="15">15 min</option>
+                    <option value="20">20 min</option>
+                    <option value="25" selected>25 min</option>
+                </select>
+                <span id="timer-display">25:00</span>
+                <div class="timer-buttons">
+                    <button id="start-btn">Start</button>
+                    <button id="stop-btn">Stop</button>
+                    <button id="reset-btn">Reset</button>
+                </div>
+            </div>
+        </section>
+        
+        <section class="mode-toggle">
+            <button id="theme-toggle" aria-label="Toggle dark mode">
+                <span id="theme-icon">☀</span>
+            </button>
+        </section>
+        
+        <section class="settings-area">
+            <button id="name-settings-btn" aria-label="Edit personal settings">
+                <span id="settings-icon">⚙</span>
+            </button>
+        </section>
+    </header>
+    
+    <!-- Settings Modal for Name Management -->
+    <div id="name-settings-modal" class="modal" style="display: none;">
+        <div class="modal-content">
+            <span class="close-btn">&times;</span>
+            <h2>Personal Settings</h2>
+            <div class="modal-body">
+                <p>Current name: <strong id="current-name-display">User</strong></p>
+                <div class="name-edit-container">
+                    <input type="text" id="new-name-input" placeholder="Enter your name">
+                    <button id="save-name-btn">Save Name</button>
+                </div>
+                <p id="name-error-msg" class="error-message" style="display: none;">Please enter a valid name (non-empty, trimmed).</p>
+            </div>
+        </div>
+    </div>
+    
+    <main class="main-content">
+        <section class="panel todo-panel">
+            <h2>To-Do List</h2>
+            <div class="todo-input">
+                <input type="text" id="task-input" placeholder="Add a new task...">
+                <button id="add-task-btn">Add</button>
+            </div>
+            <ul id="task-list">
+                <!-- Tasks will be rendered here -->
+            </ul>
+            <div class="todo-footer">
+                <button id="clear-completed-btn">Clear Completed</button>
+                <span id="tasks-count"></span>
+            </div>
+        </section>
+        
+        <section class="panel quick-links-panel">
+            <h2>Quick Links</h2>
+            <div class="quicklinks-input">
+                <input type="text" id="link-url" placeholder="URL">
+                <input type="text" id="link-label" placeholder="Label">
+                <button id="add-link-btn">Add</button>
+            </div>
+            <div id="links-container">
+                <!-- Links will be rendered here -->
+            </div>
+        </section>
+    </main>
+    
+    <footer class="dashboard-footer">
+        <p>To-Do List Life Dashboard</p>
+    </footer>
+    
+    <script type="module" src="scripts/app.js"></script>
+</body>
+</html>
